@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Looping Computation</title>
+    </head>
+<body>
+    <h1>Chandrakanth computes discount</h1>
+    <div>
+        <label for="amount">Enter the base amount</label>
+        <input type = "number" id = "amount" name = "amount" value = 20>
+    </div>
+    <div>
+        <label for="discount">Enter the discount percentage</label>
+        <input type = "number" id = "discount" name = "discount" value = 10>
+    </div>
+    <button type = "button" onclick="discount()">
+        Apply discount
+    </button>
+    <p id="result">This text will be replaced with base values</p>
+    <script>
+        function discount()
+        {
+            baseAmount = document.getElementById("amount").value
+            baseDiscount = document.getElementById("discount").value
+            result = "";
+            for(let i=1;i<=5;i++)
+            {
+                result += i*(baseAmount - (baseAmount * baseDiscount)/100);
+                result += " ";
+            }
+            document.getElementById("result").innerHTML="Discounted amounts for base "+baseAmount+" are "+result
+        }
+    </script>
+</body>
+</html> 
