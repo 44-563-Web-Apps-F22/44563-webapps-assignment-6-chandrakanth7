@@ -22,7 +22,6 @@
     <button type = "button" onclick="selectVacation()">
         Select a vacation
     </button>
-    <p id="result">This text will be replaced with the vacation</p>
     <script>
         var my_Vacation = {};
         function selectVacation()
@@ -55,6 +54,30 @@
             {
                 my_Vacation.byResort = false;
             }
+            document.getElementById("result").innerHTML = JSON.stringify(my_Vacation)
+        }
+    </script>
+    <form>
+        <div class="container">
+            <label for="city">Enter a city</label>
+            <input type="text" id="city" name="vacationname" value="city">
+        </div>
+        <div class="container">
+            <label for="price">Enter price</label>
+            <input type="text" id="price" name="vacationprice" value="0">
+        </div>
+        <button type = "button" onclick="updateVacation()">
+            Update the vacation
+        </button>
+        <p id="result">This text will be replaced with the updated vacation</p>
+    </form>
+    <script>
+        function updateVacation()
+        {
+            city = document.getElementById("city").value;
+            price = document.getElementById("price").value;
+            my_Vacation["City"] = city;
+            my_Vacation["Price"] = price;
             document.getElementById("result").innerHTML = JSON.stringify(my_Vacation)
         }
     </script>
